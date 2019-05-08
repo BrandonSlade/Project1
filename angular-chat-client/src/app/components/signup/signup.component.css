@@ -1,0 +1,33 @@
+h2 {
+    text-align: center;
+}
+
+div {
+    padding: 5px;
+}
+
+div > label, div > input {
+    font-size: 1.5rem;
+}
+
+label, input, select {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10px;
+}
+#button {
+    font-size: 2rem; 
+    width: 45%;
+    height: 60px;
+    background: rgb(184, 184, 184);
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+}
+nav > #button:hover:enabled {
+    background: rgba(35, 49, 247, 0.678);
+}

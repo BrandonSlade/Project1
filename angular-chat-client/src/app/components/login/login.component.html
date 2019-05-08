@@ -1,0 +1,18 @@
+<hr>
+<h2>Login</h2>
+<hr>
+<div>
+  <p *ngIf="lastStatus === 400">Username or password is incorrect.</p>
+  <p *ngIf="lastStatus === 500">Unknown server error occurred.</p>
+  <p *ngIf="lastStatus === 0">Server unreachable.</p>
+  <nav>
+    <label for="username">Enter Username:</label>
+    <input type="text" id="username" [(ngModel)]="username">
+
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" [(ngModel)]="password">
+
+    <input id="button" type="submit" [disabled]="!formValidation()" (click)="submit()" value="Login">
+    <input id="button" type="button" routerLink="" value="Back to Main">
+  </nav>
+</div>
