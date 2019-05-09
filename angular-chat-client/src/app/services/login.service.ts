@@ -21,7 +21,7 @@ export class LoginService {
     this.httpClient.post('http://localhost:8080/Project_1/login', payload, {
         observe: 'response'
       }).subscribe(response => {
-        //
+        sessionStorage.setItem('cache', response.body.toString());
         this.loginStatusSubject.next(200);
       }, err => {
         this.loginStatusSubject.next(err.status);

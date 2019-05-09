@@ -1,133 +1,13 @@
 <div id="container">
   <nav>
-    <input id="button" type="button" routerLink="" value="Log Out">
+    <input id="button" type="button" routerLink="" value="Log Out" (click)="clearStorage()">
   </nav>
+  <div><h1>Welcome, you have successfully signed in. What would you like to do next, {{name}}</h1></div>
   <hr>
-  <div id="subcontainer">
-    <div class="subtitle"><strong>Reimbursements that we have on file for you.</strong></div>
-    <hr>
-    <table>
-      <tr>
-      <th colspan="9">Reimbursements</th> 
-    </tr>
-      <tr>
-        <th>Reimburesment ID</th>
-        <th>Reimburesment Amount</th>
-        <th>Submitted</th>
-        <th>Resolved</th>
-        <th>Description</th>
-        <th>Reciept</th>
-        <th>Resolver</th>
-        <th>Status</th>
-        <th>Type</th>
-      </tr>
-      <tr>
-        <td>table data goes here</td>
-        <td>table data goes here</td>
-        <td>table data goes here</td>
-        <td>table data goes here</td>
-        <td>table data goes here</td>
-        <td>table data goes here</td>
-        <td>table data goes here</td>
-        <td>table data goes here</td> 
-        <td>table data goes here</td>
-      </tr>
-    </table>
-  </div>
-  <div id="subcontainer">
-      <div class="subtitle"><strong>Create a new reimbursement here.</strong></div>
-      <hr>
-      <table>
-        <tr>
-        <th colspan="9">New Reimbursement</th> 
-      </tr>
-        <tr>
-          <th>Reimburesment Amount</th>
-          <th>Description</th>
-          <th>Reciept</th>
-          <th>Resolver</th>
-          <th>Type</th>
-        </tr>
-        <tr>
-          <td>
-            <input type="text" [(ngModel)]="amount">
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="description">
-          </td>
-          <td>
-            <input type="file" name="upload" id="upload" [(ngModel)]="reciept">
-          </td>
-          <td>
-            <select name="resolver" id="resolver" [(ngModel)]="resolver">
-              <option value="0"></option>
-              <option value="11">Brandon Slade</option>
-              <option value="14">Willie Joe</option>
-            </select>
-          </td>
-          <td>
-            <select name="type" id="type" [(ngModel)]="type">
-                <option value="0"></option>
-                <option value="1">Lodging</option>
-                <option value="2">Travel</option>
-                <option value="3">Food</option>
-                <option value="4">Other</option>
-            </select>
-          </td>
-        </tr>
-      </table>
-      <nav>
-          <input id="button" type="Submit" [disabled]="!newInputValidation()" (click)="submitNew()" value="Submit">
-      </nav>
-  </div>
-  <div id="subcontainer">
-      <div class="subtitle"><strong>Reimbursements that you can resolve.</strong></div>
-      <hr>
-      <table>
-        <tr>
-        <th colspan="9">Reimbursements</th> 
-      </tr>
-        <tr>
-          <th>Reimburesment ID</th>
-          <th>Reimburesment Amount</th>
-          <th>Submitted</th>
-          <th>Resolved</th>
-          <th>Description</th>
-          <th>Reciept</th>
-          <th>Resolver</th>
-          <th>Status</th>
-          <th>Type</th>
-        </tr>
-        <tr>
-          <td>table data goes here</td>
-          <td>table data goes here</td>
-          <td>table data goes here</td>
-          <td>table data goes here</td>
-          <td>table data goes here</td>
-          <td>table data goes here</td>
-          <td>table data goes here</td>
-          <td>table data goes here</td> 
-          <td>table data goes here</td>
-        </tr>
-      </table>
-      <div class="dropcontainer">
-        <label class="dropdown" for="reimb_id">Reimburesment ID: </label>
-        <select class="selector" name="reimb_id" id="reimb_id" [(ngModel)]="id">
-            <option value="0"></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
-        <label class="dropdown" for="reimb_status_id">Reimburesment Status: </label>
-        <select class="selector" name="reimb_status_id" id="reimb_status_id" [(ngModel)]="status">
-            <option value="0"></option>
-            <option value="2">Approved</option>
-            <option value="3">Denied</option>
-        </select>
-      </div>
-      <nav>
-      <input id="button" type="Submit" [disabled]="!formValidation()" (click)="submit()" value="Submit">
-      </nav>
-    </div>
+  <input id="tab" type="button" routerLink="" value="View Reimbursements" (click)="viewPending()">
+  <input id="tab" type="button" routerLink="" value="Submit New Reimburesment" (click)="newReimb()">
+  <input id="tab" type="button" routerLink="" value="Resolve Pending Reimbursements" (click)="resolvePending()" *ngIf="managerValid()">
+  <hr>
   <div>
     <!-- router-outlet acts as a placeholder to render
       the active component -->

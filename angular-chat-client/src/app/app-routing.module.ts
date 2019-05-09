@@ -4,6 +4,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { MainComponent } from './components/main/main.component';
+import { ViewReimbcomponentComponent } from './components/view-reimb-component/view-reimbcomponent.component';
+import { NewReimbComponentComponent } from './components/new-reimb-component/new-reimb-component.component';
+import { ResolvePendingComponentComponent } from './components/resolve-pending-component/resolve-pending-component.component';
 
 const routes: Routes = [
   {
@@ -23,7 +26,19 @@ const routes: Routes = [
     component: MainComponent
   }, {
       path: 'chat',
-      component: ChatComponent
+      component: ChatComponent,
+      children: [
+        {
+          path: 'view',
+          component: ViewReimbcomponentComponent
+        }, {
+          path: 'new',
+          component: NewReimbComponentComponent
+        }, {
+          path: 'resolve',
+          component: ResolvePendingComponentComponent
+        }
+      ]
     }
 ];
 

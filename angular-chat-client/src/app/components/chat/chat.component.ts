@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -12,11 +14,15 @@ export class ChatComponent implements OnInit {
   description = '';
   resolver = 0;
   type = 0;
-  manager = 2;
+  splitCache = sessionStorage.getItem('cache').split(' ');
+  name = this.splitCache[2] + ' ' + this.splitCache[3];
+  userId = this.splitCache[0];
+  role_id = this.splitCache[4];
 
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   formValidation(): boolean {
@@ -37,6 +43,18 @@ export class ChatComponent implements OnInit {
   }
 
   managerValid(): boolean {
-    return 
+     return this.role_id === '2';
+  }
+  clearStorage() {
+    sessionStorage.removeItem('cache');
+  }
+  viewPending() {
+    this.router.navigateByUrl('chat/view');
+  }
+  newReimb() {
+    this.router.navigateByUrl('chat/new');
+  }
+  resolvePending() {
+    this.router.navigateByUrl('chat/resolve');
   }
 }

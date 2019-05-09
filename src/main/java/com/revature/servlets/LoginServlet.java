@@ -34,9 +34,13 @@ public class LoginServlet extends DefaultServlet {
 		
 		Integer id = null;
 		Integer role = null;
+		String first_name = "";
+		String last_name = "";
 		try {
 			id = this.loginService.login(credentials);
 			role = this.loginService.getRole(credentials);
+			first_name = this.loginService.getFirst_name(credentials);
+			last_name = this.loginService.getLast_name(credentials);
 		} catch (HttpException e) {
 			response.setStatus(e.getStatus());
 			return;
@@ -45,11 +49,11 @@ public class LoginServlet extends DefaultServlet {
 			e.printStackTrace();
 		}
 		
-		String cache = credentials.getId() + credentials.getUsername() + credentials.getFirst_name() + credentials.getLast_name();
+		String cache = id + " " + credentials.getUsername() + " " + first_name + " " + last_name + " " + role;
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("id", id);
-		session.setAttribute("role", role);
+		//session.setAttribute("role", role);
 		om.writeValue(response.getOutputStream(),cache);
 	}
 }

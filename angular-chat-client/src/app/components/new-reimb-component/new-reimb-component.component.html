@@ -1,0 +1,47 @@
+<div id="subcontainer">
+    <div class="subtitle"><strong>Create a new reimbursement here.</strong></div>
+    <hr>
+    <table>
+      <tr>
+      <th colspan="9">New Reimbursement</th> 
+    </tr>
+      <tr>
+        <th>Reimburesment Amount</th>
+        <th>Description</th>
+        <th>Reciept</th>
+        <th>Resolver</th>
+        <th>Type</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" [(ngModel)]="amount">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="description">
+        </td>
+        <td>
+          <input type="file" name="upload" id="upload" [(ngModel)]="reciept">
+        </td>
+        <td>
+          <select name="resolver" id="resolver" [(ngModel)]="resolver">
+            <option value="0"></option>
+            <option value="11">Brandon Slade</option>
+            <option value="14">Willie Joe</option>
+          </select>
+        </td>
+        <td>
+          <select name="type" id="type" [(ngModel)]="type">
+              <option value="0"></option>
+              <option value="1">Lodging</option>
+              <option value="2">Travel</option>
+              <option value="3">Food</option>
+              <option value="4">Other</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <nav>
+        <input id="button" type="Submit" [disabled]="!newInputValidation()" (click)="submitNew()" value="Submit">
+    </nav>
+  </div>
+ 

@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { TrimPipePipe } from './pipes/trim-pipe.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
+import { ViewReimbcomponentComponent } from './components/view-reimb-component/view-reimbcomponent.component';
+import { NewReimbComponentComponent } from './components/new-reimb-component/new-reimb-component.component';
+import { ResolvePendingComponentComponent } from './components/resolve-pending-component/resolve-pending-component.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { MainComponent } from './components/main/main.component';
     LoginComponent,
     ChatComponent,
     TrimPipePipe,
-    MainComponent
+    MainComponent,
+    ViewReimbcomponentComponent,
+    NewReimbComponentComponent,
+    ResolvePendingComponentComponent
   ],
   imports: [
     BrowserModule,
