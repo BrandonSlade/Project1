@@ -14,7 +14,6 @@ nav {
 #container {
     width: 100%;
     margin: 0 auto;
-    box-shadow: 2px 2px 3px 3px grey;
     background-image: url(https://images.unsplash.com/photo-1555910387-225ad590e107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80);
     background-size: 100%;
     background-position-y: 22%;
@@ -45,4 +44,10 @@ body{
 
 .title {
     text-align: center;
+}
+
+hr.new {
+    border: 8px inset rgb(85, 85, 85);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

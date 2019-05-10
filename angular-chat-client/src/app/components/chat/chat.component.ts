@@ -8,34 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  status = 0;
-  id = 0;
-  amount = '';
-  description = '';
-  resolver = 0;
-  type = 0;
+ 
   splitCache = sessionStorage.getItem('cache').split(' ');
   name = this.splitCache[2] + ' ' + this.splitCache[3];
   userId = this.splitCache[0];
   role_id = this.splitCache[4];
 
+
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-
-  }
-
-  formValidation(): boolean {
-    return this.status !== 0 && this.id !== 0;
   }
 
   submit() {
     //do something to update the database here.
-  }
-
-  newInputValidation(): boolean {
-    return this.amount.length > 0 && this.description.length > 15 &&
-      this.resolver !== 0 && this.type !== 0;
   }
 
   submitNew() {
@@ -50,6 +36,7 @@ export class ChatComponent implements OnInit {
   }
   viewPending() {
     this.router.navigateByUrl('chat/view');
+    
   }
   newReimb() {
     this.router.navigateByUrl('chat/new');
@@ -57,4 +44,9 @@ export class ChatComponent implements OnInit {
   resolvePending() {
     this.router.navigateByUrl('chat/resolve');
   }
+
+  active() {
+    
+  }
+
 }

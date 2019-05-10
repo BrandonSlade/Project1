@@ -2,13 +2,16 @@
   <nav>
     <input id="button" type="button" routerLink="" value="Log Out" (click)="clearStorage()">
   </nav>
-  <div><h1>Welcome, you have successfully signed in. What would you like to do next, {{name}}</h1></div>
-  <hr>
-  <input id="tab" type="button" routerLink="" value="View Reimbursements" (click)="viewPending()">
-  <input id="tab" type="button" routerLink="" value="Submit New Reimburesment" (click)="newReimb()">
-  <input id="tab" type="button" routerLink="" value="Resolve Pending Reimbursements" (click)="resolvePending()" *ngIf="managerValid()">
-  <hr>
-  <div>
+  <div id="wtc"><h1 id="wt">Welcome, you have successfully signed in. What would you like to do next, {{name}}</h1></div>
+  <hr class="new">
+
+  <ul class="tabrow">
+    <li class="tab" routerLink="" (click)="viewPending()">View Reimbursements</li>
+    <li class="tab" routerLink="" (click)="newReimb()">Submit New Reimburesment</li>
+    <li class="tab" routerLink="" (click)="resolvePending()" *ngIf="managerValid()">Resolve Pending Reimbursements</li>
+ </ul>
+
+<div>
     <!-- router-outlet acts as a placeholder to render
       the active component -->
     <router-outlet></router-outlet>

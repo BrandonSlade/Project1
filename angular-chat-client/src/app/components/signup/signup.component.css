@@ -27,7 +27,13 @@ input {
     cursor: pointer;
     padding: 5px;
     text-align: center;
+    margin-top: 10px;
 }
 nav > #button:hover:enabled {
     background: rgba(35, 49, 247, 0.678);
+}
+hr.new {
+    border: 8px inset rgb(85, 85, 85);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
   private loginStatusSubject = new Subject<number>();
   public  $loginStatus = this.loginStatusSubject.asObservable();
-  public loggedIn = false;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,6 +25,5 @@ export class LoginService {
       }, err => {
         this.loginStatusSubject.next(err.status);
       });
-      this.loggedIn = true;
   }
 }

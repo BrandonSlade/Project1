@@ -9,6 +9,8 @@ import com.revature.util.HttpException;
 
 public class LoginService {
 	LoginDao loginDao = new LoginDao();
+	public static int userId;
+	public static int userRoleId;
 
 	public int login(Credentials credentials) throws NoSuchAlgorithmException {
 		
@@ -21,6 +23,9 @@ public class LoginService {
 		if (!user.getPassword().equals(credentials.getHashedPassword())) {
 			throw new HttpException(400);
 		}
+		
+		userId = user.getId();
+		userRoleId = user.getRole();
 		
 		return user.getId();
 	}

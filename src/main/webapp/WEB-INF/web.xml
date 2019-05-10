@@ -13,6 +13,18 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.revature.servlets.LoginServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ViewReimb</servlet-name>
+		<servlet-class>com.revature.servlets.ViewReimbServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CreateNew</servlet-name>
+		<servlet-class>com.revature.servlets.CreateNewServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateServlet</servlet-name>
+		<servlet-class>com.revature.servlets.UpdateServlet</servlet-class>
+	</servlet>
  
   <servlet-mapping>
 		<servlet-name>SignUp</servlet-name>
@@ -22,6 +34,17 @@
 		<servlet-name>login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
-  
+	<servlet-mapping>
+		<servlet-name>ViewReimb</servlet-name>
+		<url-pattern>/ViewReimb</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateNew</servlet-name>
+		<url-pattern>/CreateNew</url-pattern>
+	</servlet-mapping>
+  	<servlet-mapping>
+		<servlet-name>UpdateServlet</servlet-name>
+		<url-pattern>/UpdateServlet</url-pattern>
+	</servlet-mapping>
   
 </web-app>

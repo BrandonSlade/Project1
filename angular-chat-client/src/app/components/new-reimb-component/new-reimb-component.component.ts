@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-reimb-component.component.css']
 })
 export class NewReimbComponentComponent implements OnInit {
+  amount = '';
+  description = '';
+  resolver = 0;
+  type = 0;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -17,4 +21,8 @@ export class NewReimbComponentComponent implements OnInit {
     this.router.navigateByUrl('chat');
   }
 
+  newInputValidation(): boolean {
+    return this.amount.length > 0 && this.description.length > 15 &&
+      this.resolver !== 0 && this.type !== 0;
+  }
 }

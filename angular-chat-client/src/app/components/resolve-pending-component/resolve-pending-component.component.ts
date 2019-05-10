@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./resolve-pending-component.component.css']
 })
 export class ResolvePendingComponentComponent implements OnInit {
-
+  status = 0;
+  id = 0;
+  
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
-  backToMain() {
-    this.router.navigateByUrl('chat');
+  formValidation(): boolean {
+    return this.status !== 0 && this.id !== 0;
   }
 }
