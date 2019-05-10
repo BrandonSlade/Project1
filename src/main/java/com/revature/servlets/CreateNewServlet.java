@@ -29,15 +29,8 @@ RequestDao requestDao = new RequestDao();
 			throws ServletException, IOException {
 		
 		ObjectMapper om = new ObjectMapper();
-		
 		ArrayList managers = requestDao.pullManagersFromUsers();
-
-		
 		om.writeValue(response.getOutputStream(), managers);
-		
-		
-		
-		
 		
 	}
 	
@@ -45,10 +38,8 @@ RequestDao requestDao = new RequestDao();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		ObjectMapper om = new ObjectMapper();
-	
 		SubmissionReq subReq = om.readValue(request.getInputStream(), SubmissionReq.class);
 		System.out.println(subReq);
-		
 		requestDao.sendRequestByUserId(subReq);
 		
 	}

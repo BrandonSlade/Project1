@@ -93,3 +93,8 @@ table {
 nav > #button:hover:enabled {
     background: rgba(35, 49, 247, 0.678);
 }
+.submitted {
+    text-align: center;
+    background-color: rgba(161, 161, 161, 0.753);
+    font-size: 2rem;
+}

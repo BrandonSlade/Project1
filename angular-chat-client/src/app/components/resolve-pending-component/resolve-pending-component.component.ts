@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { ChatService } from 'src/app/services/chat.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-resolve-pending-component',
@@ -8,14 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./resolve-pending-component.component.css']
 })
 export class ResolvePendingComponentComponent implements OnInit {
-  status = 0;
-  id = 0;
-  
-  constructor(private loginService: LoginService, private router: Router) { }
+  reimbStatus = 0;
+  reimbId = 0;
+  resolveData;
+  createResponse: Subscription;
+  lastStatus = 200;
+
+  constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
+    this.createResponse = this.chatService.$resolveReimbStatus.subscribe(status => {
+      // do something with the status here
+      if (status === 200) {
+        this.resolveData = this.chatService.resolveRequestData;
+        console.log(this.resolveData);
+      } else {
+        // set status to lastStatus to display appropriate error message
+        this.lastStatus = status;
+      }
+    });
   }
   formValidation(): boolean {
-    return this.status !== 0 && this.id !== 0;
+    return this.reimbStatus !== 0 && this.reimbId !== 0;
+  }
+
+  submit() {
+    this.chatService.ResolvePending(this.reimbId, this.reimbStatus);
   }
 }

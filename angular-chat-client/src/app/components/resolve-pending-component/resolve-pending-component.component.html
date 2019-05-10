@@ -26,13 +26,14 @@
     </table>
     <div class="dropcontainer">
       <label class="dropdown" for="reimb_id">Reimburesment ID: </label>
-      <select class="selector" name="reimb_id" id="reimb_id" [(ngModel)]="id">
+      <select class="selector" name="reimb_id" id="reimb_id" [(ngModel)]="reimbId">
           <option value="0"></option>
           <option value="1">1</option>
           <option value="2">2</option>
+          <option value="4">4</option>
       </select>
       <label class="dropdown" for="reimb_status_id">Reimburesment Status: </label>
-      <select class="selector" name="reimb_status_id" id="reimb_status_id" [(ngModel)]="status">
+      <select class="selector" name="reimb_status_id" id="reimb_status_id" [(ngModel)]="reimbStatus">
           <option value="0"></option>
           <option value="2">Approved</option>
           <option value="3">Denied</option>

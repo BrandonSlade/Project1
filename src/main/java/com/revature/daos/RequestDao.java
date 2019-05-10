@@ -29,7 +29,7 @@ public class RequestDao {
 			
 			while(rs.next()) {
 				 int reimbId = rs.getInt("reimb_id");
-				 double reimbAmount = rs.getInt("reimb_id");
+				 double reimbAmount = rs.getInt("reimb_amount");
 				 Timestamp reimbSubmitted = rs.getTimestamp("reimb_submitted");
 				 Timestamp reimbResolved = rs.getTimestamp("reimb_resolved");
 				 String description = rs.getString("reimb_description");

@@ -20,17 +20,17 @@
             <input type="text" [(ngModel)]="description">
         </td>
         <td>
-          <input type="file" name="upload" id="upload" [(ngModel)]="reciept">
+          <input type="file" name="upload" id="upload" [(ngModel)]="reimbRreceipt">
         </td>
         <td>
-          <select name="resolver" id="resolver" [(ngModel)]="resolver">
+          <select name="managerId" id="managerId" [(ngModel)]="managerId">
             <option value="0"></option>
             <option value="11">Brandon Slade</option>
             <option value="14">Willie Joe</option>
           </select>
         </td>
         <td>
-          <select name="type" id="type" [(ngModel)]="type">
+          <select name="type" id="type" [(ngModel)]="reimbType">
               <option value="0"></option>
               <option value="1">Lodging</option>
               <option value="2">Travel</option>
@@ -40,6 +40,7 @@
         </td>
       </tr>
     </table>
+    <div class="submitted" *ngIf="submission()"> Your reimbursement has been successfully submitted.</div>
     <nav>
         <input id="button" type="Submit" [disabled]="!newInputValidation()" (click)="submitNew()" value="Submit">
     </nav>
